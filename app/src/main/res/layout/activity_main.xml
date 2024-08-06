@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- EditText لإدخال النصوص -->
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter text here"
+        android:inputType="textMultiLine"
+        android:minLines="3" />
+
+    <!-- Button لنطق النص -->
+    <Button
+        android:id="@+id/buttonSpeak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Speak"
+        android:layout_below="@id/editText"
+        android:layout_marginTop="16dp" />
+
+    <!-- Spinner لاختيار اللغة -->
+    <Spinner
+        android:id="@+id/languageSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/languages"
+        android:layout_below="@id/buttonSpeak"
+        android:layout_marginTop="16dp" />
+</RelativeLayout>
