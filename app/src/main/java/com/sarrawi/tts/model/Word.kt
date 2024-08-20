@@ -1,4 +1,4 @@
-package com.sarrawi.tts.wordDb
+package com.sarrawi.tts.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

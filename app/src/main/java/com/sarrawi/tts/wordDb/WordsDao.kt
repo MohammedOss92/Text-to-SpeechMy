@@ -3,6 +3,7 @@ package com.sarrawi.tts.wordDb
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
+import com.sarrawi.tts.model.Word
 
 @Dao
 interface WordsDao {

@@ -73,11 +73,11 @@ import android.speech.tts.TextToSpeech
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.Locale
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sarrawi.tts.wordDb.WordVM
+import com.sarrawi.tts.Adapter.WordAdapter
+import com.sarrawi.tts.VModel.WordVM
 import kotlinx.coroutines.launch
 
 

@@ -1,4 +1,4 @@
-package com.sarrawi.tts
+package com.sarrawi.tts.Adapter
 
 //import android.content.Context
 //import android.speech.tts.TextToSpeech
@@ -123,7 +123,8 @@ import java.util.Locale
 
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
-import com.sarrawi.tts.wordDb.Word
+import com.sarrawi.tts.R
+import com.sarrawi.tts.model.Word
 
 
 class WordAdapter(

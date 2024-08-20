@@ -1,10 +1,11 @@
-package com.sarrawi.tts.wordDb
+package com.sarrawi.tts.VModel
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.sarrawi.tts.VRepo.WordRepo
+import com.sarrawi.tts.model.Word
 
 class WordVM constructor(application : Application) : ViewModel() {
 

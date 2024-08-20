@@ -1,11 +1,14 @@
-package com.sarrawi.tts.wordDb
+package com.sarrawi.tts.VRepo
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import com.sarrawi.tts.model.Word
+import com.sarrawi.tts.wordDb.DbWord
+import com.sarrawi.tts.wordDb.WordsDao
 
 class WordRepo (app: Application) {
 
-    private var WordDao:WordsDao
+    private var WordDao: WordsDao
 
     init{
         val database = DbWord.getInstance(app)
