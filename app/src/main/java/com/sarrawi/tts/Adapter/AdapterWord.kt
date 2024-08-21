@@ -14,10 +14,11 @@ import com.sarrawi.tts.model.SealedClass
 import java.util.*
 
 
-class AdapterWord(private val words: List<SealedClass>, private val context: Context,
+class AdapterWord( private val context: Context,
                   private val tts: TextToSpeech
 ) :
     RecyclerView.Adapter<AdapterWord.WordViewHolder>() {
+
 
     init {
         // تعيين اللغة الافتراضية للنطق إلى الإنجليزية
@@ -73,12 +74,12 @@ class AdapterWord(private val words: List<SealedClass>, private val context: Con
     }
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
-        val wordEntity = words[position]
+        val wordEntity = wordsList[position]
         holder.bind(wordEntity)
 
     }
 
-    override fun getItemCount(): Int = words.size
+    override fun getItemCount(): Int = wordsList.size
 
 
     class WordViewHolder(itemView: View, private val tts: TextToSpeech) : RecyclerView.ViewHolder(itemView) {
