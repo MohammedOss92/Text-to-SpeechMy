@@ -5,6 +5,8 @@ import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -17,7 +19,8 @@ import java.util.*
 class AdapterWord( private val context: Context,
                   private val tts: TextToSpeech
 ) :
-    RecyclerView.Adapter<AdapterWord.WordViewHolder>() {
+    RecyclerView.Adapter<AdapterWord.WordViewHolder>(), Filterable {
+    var wordsListFull: List<SealedClass> = listOf()
 
 
     init {
@@ -60,11 +63,19 @@ class AdapterWord( private val context: Context,
     }
 
     private val differ = AsyncListDiffer(this, diffCallback)
-    var wordsList: List<SealedClass>
-        get() = differ.currentList
+//    var wordsList: List<SealedClass>
+//        get() = differ.currentList
+//        set(value) {
+//            differ.submitList(value)
+//        }
+
+    var wordsList: List<SealedClass> = emptyList()
         set(value) {
+            field = value
+            wordsListFull = value.toList()
             differ.submitList(value)
         }
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
@@ -346,6 +357,34 @@ class AdapterWord( private val context: Context,
         }
     }
 
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val filteredList = ArrayList<SealedClass>()
+
+                if (constraint == null || constraint.isEmpty()) {
+                    filteredList.addAll(wordsListFull)
+                } else {
+                    val filterPattern = constraint.toString().lowercase(Locale.ROOT).trim()
+
+                    for (item in wordsListFull) {
+                        if (item.toString().lowercase(Locale.ROOT).contains(filterPattern)) {
+                            filteredList.add(item)
+                        }
+                    }
+                }
+
+                val results = FilterResults()
+                results.values = filteredList
+                return results
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                wordsList = results?.values as List<SealedClass>
+                notifyDataSetChanged()
+            }
+        }
+    }
 
 
 }

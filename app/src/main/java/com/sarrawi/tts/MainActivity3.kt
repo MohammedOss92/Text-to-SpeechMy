@@ -6,6 +6,7 @@ import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AdapterView
+import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
@@ -90,6 +91,20 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
                 // لا شيء هنا
             }
         }
+
+        val searchView = findViewById<SearchView>(R.id.searchView)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapterWord.filter.filter(newText)
+                return false
+            }
+        })
+
     }
 
     /* 0 -> setUpRecyclerView(wordVM.getAllWords(), SealedClass.Word::class.java)
@@ -102,6 +117,7 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
                 itemType.isAssignableFrom(SealedClass.Word::class.java) -> {
                     @Suppress("UNCHECKED_CAST")
                     adapterWord.wordsList = listShows as List<SealedClass.Word>
+                    adapterWord.wordsListFull = listShows
                 }
                 itemType.isAssignableFrom(SealedClass.Words_two::class.java) -> {
                     @Suppress("UNCHECKED_CAST")

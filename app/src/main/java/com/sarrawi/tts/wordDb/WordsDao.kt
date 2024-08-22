@@ -71,4 +71,6 @@ interface WordsDao {
             "OR Arabic_Word LIKE :searchQuery")
     fun searchWords(searchQuery: String): LiveData<List<SealedClass.Word>>
 
+
+
 }
