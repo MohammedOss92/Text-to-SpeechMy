@@ -3,11 +3,18 @@ package com.sarrawi.tts
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AdapterView
 import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -46,7 +53,7 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
         adapterWord = AdapterWord(this@MainActivity3, tts)
         recyclerView.layoutManager = LinearLayoutManager(this@MainActivity3)
         recyclerView.adapter = adapterWord
-
+        menu_item()
         // إعداد Spinner
         val spinnerAdapter = ArrayAdapter.createFromResource(
             this,
@@ -84,6 +91,7 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
                     18 -> setUpRecyclerView(wordVM.getAlltv_verbsViewModel(), SealedClass.Tv_verbs::class.java)
                     // أضف المزيد من الحالات حسب الحاجة
                 }
+
 
             }
 
@@ -227,6 +235,120 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
             adapterWord.wordsList = listShows
         }
     }
+
+    private fun menu_item() {
+        val menuHost: MenuHost = this
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.main_menu, menu)
+
+                val search = menu.findItem(R.id.menu_search)
+                val searchView = search.actionView as androidx.appcompat.widget.SearchView
+
+                searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+                        query?.let {
+                            val position = spinner.selectedItemPosition
+                            searchDatabase(it, position)
+                        }
+                        return true
+                    }
+
+                    override fun onQueryTextChange(newText: String?): Boolean {
+                        newText?.let {
+                            val position = spinner.selectedItemPosition
+                            searchDatabase(it, position)
+                        }
+                        return true
+                    }
+                })
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                // معالج الضغط على بنود القائمة (Menu items)
+                when(menuItem.itemId){
+                    // يمكنك إضافة أكواد هنا لمعالجة بنود القائمة الأخرى
+                }
+                return true
+            }
+
+        }, this, Lifecycle.State.RESUMED)
+    }
+
+
+    private fun searchDatabase(query: String, position: Int) {
+        val searchQuery = "%$query%"
+        Log.d("SearchDatabase", "Searching for: $searchQuery at position: $position")
+
+        when (position) {
+            0 -> wordVM.searc1(searchQuery).observe(this) { result ->
+                Log.d("SearchDatabase", "Result for position 0: $result")
+
+                adapterWord.setLetters(result)
+                adapterWord.notifyDataSetChanged()
+            }
+            1 -> wordVM.SearchViewModel2(searchQuery).observe(this) { result ->
+                Log.d("SearchDatabase", "Result for position 1: $result")
+
+                adapterWord.setLetters2(result)
+                adapterWord.notifyDataSetChanged()
+            }
+//            2 -> wordVM.searchWordThree(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            3 -> wordVM.searchTbAdjectives(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            4 -> wordVM.searchTbClothesAndToiletArticles(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            5 -> wordVM.searchTbColours(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            6 -> wordVM.searchTbFamily(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            7 -> wordVM.searchTbFruit(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            8 -> wordVM.searchTbHouseAndFurniture(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            9 -> wordVM.searchTbHumanBody(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            10 -> wordVM.searchTbJobs(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            11 -> wordVM.searchTbKitchenTools(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            12 -> wordVM.searchTbPlaces(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            13 -> wordVM.searchTbPronoun(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            14 -> wordVM.searchTbSchool(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            15 -> wordVM.searchTbSimilarWords(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            16 -> wordVM.searchTbTheAnimals(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            17 -> wordVM.searchTbTransports(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+//            18 -> wordVM.searchTvVerbs(searchQuery).observe(this) { result ->
+//                adapterWord.setLetters(result)
+//            }
+            // أضف المزيد من الحالات حسب الحاجة
+        }
+    }
+
+
 
 
     override fun onInit(status: Int) {

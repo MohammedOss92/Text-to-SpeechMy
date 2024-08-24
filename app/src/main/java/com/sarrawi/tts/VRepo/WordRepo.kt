@@ -26,6 +26,14 @@ class WordRepo (app: Application) {
         return WordDao.searchWords(searchQuery)
     }
 
+    fun searchRepo2(searchQuery: String): LiveData<List<SealedClass.Words_two>> {
+        return WordDao.searchWords2(searchQuery)
+    }
+
+    fun searchRepo1(searchQuery: String): LiveData<List<SealedClass.Word>> {
+        return WordDao.searchWordss(searchQuery)
+    }
+
     fun getAllWords_twoRepo(): LiveData<List<SealedClass.Words_two>>{
         return WordDao.getAllWords_twoDao()
     }

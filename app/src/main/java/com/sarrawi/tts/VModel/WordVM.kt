@@ -16,6 +16,8 @@ class WordVM constructor(application : Application) : ViewModel() {
     fun getAllWords(): LiveData<List<SealedClass.Word>> = wordRepo.getAllWords()
 
     fun SearchViewModel(searchQuery: String): LiveData<List<SealedClass.Word>> = wordRepo.searchRepo(searchQuery)
+    fun SearchViewModel2(searchQuery: String): LiveData<List<SealedClass.Words_two>> = wordRepo.searchRepo2(searchQuery)
+    fun searc1(searchQuery: String): LiveData<List<SealedClass.Word>> = wordRepo.searchRepo1(searchQuery)
 
     fun getAllWords_twoViewModel(): LiveData<List<SealedClass.Words_two>> = wordRepo.getAllWords_twoRepo()
 

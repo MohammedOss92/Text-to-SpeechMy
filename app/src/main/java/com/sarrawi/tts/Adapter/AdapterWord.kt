@@ -386,7 +386,15 @@ class AdapterWord( private val context: Context,
         }
     }
 
+    fun setLetters(wordsList:List<SealedClass.Word>){
+        this.wordsList = wordsList
+        notifyDataSetChanged()
+    }
 
+    fun setLetters2(wordsList:List<SealedClass.Words_two>){
+        this.wordsList = wordsList
+        notifyDataSetChanged()
+    }
 }
 
 /*fun binda(wordEntity: SealedClass) {

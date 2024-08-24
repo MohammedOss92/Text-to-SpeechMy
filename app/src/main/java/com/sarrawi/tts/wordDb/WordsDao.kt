@@ -71,46 +71,51 @@ interface WordsDao {
             "OR Arabic_Word LIKE :searchQuery")
     fun searchWords(searchQuery: String): LiveData<List<SealedClass.Word>>
 
-//    @Query("""
-//        SELECT * FROM Words WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM Words_two WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM Word_three WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_Adjectives WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_Clothes_and_toilet_articles WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_Colours WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_Family WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_fruit WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_Houseandfurniture WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_Human_body WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_jobs WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_Kitchen_tools WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_places WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_Pronoun WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_school WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_Similar_words WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_The_animals WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tb_transports WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        UNION ALL
-//        SELECT * FROM tv_verbs WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
-//        """)
-//    fun searchWordss(query: String): LiveData<List<SealedClass>>
+    @Query("SELECT * FROM Words_two WHERE ID LIKE :searchQuery " +
+            "OR English_Word LIKE :searchQuery " +
+            "OR Arabic_Word LIKE :searchQuery")
+    fun searchWords2(searchQuery: String): LiveData<List<SealedClass.Words_two>>
+
+    @Query("""
+        SELECT * FROM Words WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM Words_two WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM Word_three WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_Adjectives WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_Clothes_and_toilet_articles WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_Colours WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_Family WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_fruit WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_Houseandfurniture WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_Human_body WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_jobs WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_Kitchen_tools WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_places WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_Pronoun WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_school WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_Similar_words WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_The_animals WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tb_transports WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        UNION ALL
+        SELECT * FROM tv_verbs WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
+        """)
+    fun searchWordss(query: String): LiveData<List<SealedClass.Word>>
 
 //    constructor() : this(0, "", "")
 }
