@@ -76,6 +76,11 @@ interface WordsDao {
             "OR Arabic_Word LIKE :searchQuery")
     fun searchWords2(searchQuery: String): LiveData<List<SealedClass.Words_two>>
 
+    @Query("SELECT * FROM Word_three WHERE ID LIKE :searchQuery " +
+            "OR English_Word LIKE :searchQuery " +
+            "OR Arabic_Word LIKE :searchQuery")
+    fun searchWords3(searchQuery: String): LiveData<List<SealedClass.Word_three>>
+
     @Query("""
         SELECT * FROM Words WHERE ID LIKE :query OR English_Word LIKE :query OR Arabic_Word LIKE :query
         UNION ALL

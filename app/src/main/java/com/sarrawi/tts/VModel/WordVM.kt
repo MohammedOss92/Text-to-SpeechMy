@@ -15,9 +15,9 @@ class WordVM constructor(application : Application) : ViewModel() {
 
     fun getAllWords(): LiveData<List<SealedClass.Word>> = wordRepo.getAllWords()
 
-    fun SearchViewModel(searchQuery: String): LiveData<List<SealedClass.Word>> = wordRepo.searchRepo(searchQuery)
-    fun SearchViewModel2(searchQuery: String): LiveData<List<SealedClass.Words_two>> = wordRepo.searchRepo2(searchQuery)
-    fun searc1(searchQuery: String): LiveData<List<SealedClass.Word>> = wordRepo.searchRepo1(searchQuery)
+    fun Search1(searchQuery: String): LiveData<List<SealedClass.Word>> = wordRepo.searchRepo1(searchQuery)
+    fun Search2(searchQuery: String): LiveData<List<SealedClass.Words_two>> = wordRepo.searchRepo2(searchQuery)
+    fun search3(searchQuery: String): LiveData<List<SealedClass.Word_three>> = wordRepo.searchRepo3(searchQuery)
 
     fun getAllWords_twoViewModel(): LiveData<List<SealedClass.Words_two>> = wordRepo.getAllWords_twoRepo()
 
@@ -64,4 +64,32 @@ class WordVM constructor(application : Application) : ViewModel() {
             throw IllegalArgumentException("Unable Constructore View Model")
         }
     }
+
+    //class WordViewModel(private val dao: WordDao) : ViewModel() {
+    //
+    //    fun searchAllTables(query: String): LiveData<List<SealedClass>> {
+    //        val wordResults = dao.searchWords(query)
+    //        val wordTwoResults = dao.searchWordsTwo(query)
+    //        // Combine results from other queries...
+    //
+    //        // Combine all results into a single LiveData list
+    //        return MediatorLiveData<List<SealedClass>>().apply {
+    //            addSource(wordResults) { value = it }
+    //            addSource(wordTwoResults) { value = it }
+    //            // Add sources from other queries...
+    //        }
+    //    }
+    //}
+    //الخطوات بالتفصيل:
+    //استدعاء الاستعلامات: أولاً، الدالة تقوم باستدعاء استعلامات البحث الخاصة بكل جدول من الجداول الموجودة. على سبيل المثال:
+    //
+    //wordResults تخزن النتائج التي ترجع من استعلام البحث في جدول Words.
+    //wordTwoResults تخزن النتائج التي ترجع من استعلام البحث في جدول Words_two.
+    //دمج النتائج: بعد ذلك، يتم استخدام MediatorLiveData لدمج جميع النتائج التي تم الحصول عليها من الاستعلامات المختلفة في LiveData واحدة.
+    //
+    //إضافة المصادر: يتم إضافة النتائج كمصادر باستخدام addSource بحيث يتم تحديث القيمة (value) في MediatorLiveData في كل مرة يتم فيها تحديث أحد المصادر. هذا يعني أن LiveData الناتجة ستحتوي على جميع النتائج المجمعة من مختلف الجداول.
+    //
+    //كيف تعمل MediatorLiveData:
+    //MediatorLiveData تتيح لك مراقبة عدة مصادر LiveData، ودمج البيانات من هذه المصادر في مصدر واحد.
+    //في كل مرة يتغير أحد هذه المصادر (مثل wordResults أو wordTwoResults)، يتم تحديث القيمة المجمعة تلقائياً في MediatorLiveData.
 }
