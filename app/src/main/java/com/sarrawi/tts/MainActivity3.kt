@@ -81,51 +81,7 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
                 // Do nothing
             }
         }
-//        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-//                val searchQuery = searchView.query.toString()
-//                when (position) {
-////                    0 -> setUpRv(wordVM.getAllWords())
-////                    1 -> setUpRvTwo(wordVM.getAllWords_twoViewModel())
-////                    2 -> setUpRvThree(wordVM.getAllWord_threeViewModel())
-//
-///*wordVM.Search1(searchQuery).observe(this@MainActivity3) { results ->
-//                            updateRecyclerView(results)
-//                        }
-//                    }*/
-//                    0 -> {setUpRecyclerView(wordVM.getAllWords(), SealedClass.Word::class.java)
-//                    wordVM.Search1(searchQuery).observe(this@MainActivity3) { results ->
-//                        updateRecyclerView(results)
-//                    }
-//                }
-//                    1 -> setUpRecyclerView(wordVM.getAllWords_twoViewModel(), SealedClass.Words_two::class.java)
-//                    2  -> setUpRecyclerView(wordVM.getAllWord_threeViewModel(), SealedClass.Word_three::class.java)
-//                    3 -> setUpRecyclerView(wordVM.getAlltb_AdjectivesViewModel(), SealedClass.Tb_Adjectives::class.java)
-//                    4 -> setUpRecyclerView(wordVM.getAlltb_Clothes_and_toilet_articlesViewModel(), SealedClass.Tb_Clothes_and_toilet_articles::class.java)
-//                    5 -> setUpRecyclerView(wordVM.getAlltb_ColoursViewModel(), SealedClass.Tb_Colours::class.java)
-//                    6 -> setUpRecyclerView(wordVM.getAlltb_FamilyViewModel(), SealedClass.Tb_Family::class.java)
-//                    7 -> setUpRecyclerView(wordVM.getAlltb_fruitViewModel(), SealedClass.Tb_fruit::class.java)
-//                    8 -> setUpRecyclerView(wordVM.getAlltb_HouseandfurnitureViewModel(), SealedClass.Tb_Houseandfurniture::class.java)
-//                    9 -> setUpRecyclerView(wordVM.getAlltb_Human_bodyViewModel(), SealedClass.Tb_Human_body::class.java)
-//                    10-> setUpRecyclerView(wordVM.getAlltb_jobsViewModel(), SealedClass.Tb_jobs::class.java)
-//                    11 -> setUpRecyclerView(wordVM.getAlltb_Kitchen_toolsViewModel(), SealedClass.Tb_Kitchen_tools::class.java)
-//                    12 -> setUpRecyclerView(wordVM.getAlltb_placesViewModel(), SealedClass.Tb_places::class.java)
-//                    13 -> setUpRecyclerView(wordVM.getAlltb_PronounViewModel(), SealedClass.Tb_Pronoun::class.java)
-//                    14 -> setUpRecyclerView(wordVM.getAlltb_schoolViewModel(), SealedClass.Tb_school::class.java)
-//                    15 -> setUpRecyclerView(wordVM.getAlltb_Similar_wordsViewModel(), SealedClass.Tb_Similar_words::class.java)
-//                    16 -> setUpRecyclerView(wordVM.getAlltb_The_animalsViewModel(), SealedClass.Tb_The_animals::class.java)
-//                    17 -> setUpRecyclerView(wordVM.getAlltb_transportsViewModel(), SealedClass.Tb_transports::class.java)
-//                    18 -> setUpRecyclerView(wordVM.getAlltv_verbsViewModel(), SealedClass.Tv_verbs::class.java)
-//                    // أضف المزيد من الحالات حسب الحاجة
-//                }
-//
-//
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>) {
-//                // لا شيء هنا
-//            }
-//        }
+
 
         searchView = findViewById(R.id.searchView)
 
@@ -349,4 +305,63 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
     //            }
     //        })
     //    }
+
+    //val searchView = findViewById<SearchView>(R.id.searchView)
+    //
+    //        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+    //            override fun onQueryTextSubmit(query: String?): Boolean {
+    //                return false
+    //            }
+    //
+    //            override fun onQueryTextChange(newText: String?): Boolean {
+    //                adapterWord.filter.filter(newText)
+    //                return false
+    //            }
+    //        })
+
+    //        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+//                val searchQuery = searchView.query.toString()
+//                when (position) {
+////                    0 -> setUpRv(wordVM.getAllWords())
+////                    1 -> setUpRvTwo(wordVM.getAllWords_twoViewModel())
+////                    2 -> setUpRvThree(wordVM.getAllWord_threeViewModel())
+//
+///*wordVM.Search1(searchQuery).observe(this@MainActivity3) { results ->
+//                            updateRecyclerView(results)
+//                        }
+//                    }*/
+//                    0 -> {setUpRecyclerView(wordVM.getAllWords(), SealedClass.Word::class.java)
+//                    wordVM.Search1(searchQuery).observe(this@MainActivity3) { results ->
+//                        updateRecyclerView(results)
+//                    }
+//                }
+//                    1 -> setUpRecyclerView(wordVM.getAllWords_twoViewModel(), SealedClass.Words_two::class.java)
+//                    2  -> setUpRecyclerView(wordVM.getAllWord_threeViewModel(), SealedClass.Word_three::class.java)
+//                    3 -> setUpRecyclerView(wordVM.getAlltb_AdjectivesViewModel(), SealedClass.Tb_Adjectives::class.java)
+//                    4 -> setUpRecyclerView(wordVM.getAlltb_Clothes_and_toilet_articlesViewModel(), SealedClass.Tb_Clothes_and_toilet_articles::class.java)
+//                    5 -> setUpRecyclerView(wordVM.getAlltb_ColoursViewModel(), SealedClass.Tb_Colours::class.java)
+//                    6 -> setUpRecyclerView(wordVM.getAlltb_FamilyViewModel(), SealedClass.Tb_Family::class.java)
+//                    7 -> setUpRecyclerView(wordVM.getAlltb_fruitViewModel(), SealedClass.Tb_fruit::class.java)
+//                    8 -> setUpRecyclerView(wordVM.getAlltb_HouseandfurnitureViewModel(), SealedClass.Tb_Houseandfurniture::class.java)
+//                    9 -> setUpRecyclerView(wordVM.getAlltb_Human_bodyViewModel(), SealedClass.Tb_Human_body::class.java)
+//                    10-> setUpRecyclerView(wordVM.getAlltb_jobsViewModel(), SealedClass.Tb_jobs::class.java)
+//                    11 -> setUpRecyclerView(wordVM.getAlltb_Kitchen_toolsViewModel(), SealedClass.Tb_Kitchen_tools::class.java)
+//                    12 -> setUpRecyclerView(wordVM.getAlltb_placesViewModel(), SealedClass.Tb_places::class.java)
+//                    13 -> setUpRecyclerView(wordVM.getAlltb_PronounViewModel(), SealedClass.Tb_Pronoun::class.java)
+//                    14 -> setUpRecyclerView(wordVM.getAlltb_schoolViewModel(), SealedClass.Tb_school::class.java)
+//                    15 -> setUpRecyclerView(wordVM.getAlltb_Similar_wordsViewModel(), SealedClass.Tb_Similar_words::class.java)
+//                    16 -> setUpRecyclerView(wordVM.getAlltb_The_animalsViewModel(), SealedClass.Tb_The_animals::class.java)
+//                    17 -> setUpRecyclerView(wordVM.getAlltb_transportsViewModel(), SealedClass.Tb_transports::class.java)
+//                    18 -> setUpRecyclerView(wordVM.getAlltv_verbsViewModel(), SealedClass.Tv_verbs::class.java)
+//                    // أضف المزيد من الحالات حسب الحاجة
+//                }
+//
+//
+//            }
+//
+//            override fun onNothingSelected(parent: AdapterView<*>) {
+//                // لا شيء هنا
+//            }
+//        }
 }

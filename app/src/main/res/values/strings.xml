@@ -5,6 +5,8 @@
         <item>English</item>
         <item>العربية</item>
     </string-array>
+    <string name="spinner_description">Spinner to select categories</string>
+    <string name="search_view_description">Search field for querying items</string>
 
     <string-array name="table_options">
         <item>Table 1</item>
