@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -97,6 +98,7 @@ class AdapterWord( private val context: Context,
 
         private val englishWordTextView: TextView = itemView.findViewById(R.id.englishWord)
         private val arabicWordTextView: TextView = itemView.findViewById(R.id.arabicMeaning)
+//        val bookmarkButton: ImageView = itemView.findViewById(R.id.bookmarkButton)
 
         fun bind(wordEntity: SealedClass) {
             when (wordEntity) {

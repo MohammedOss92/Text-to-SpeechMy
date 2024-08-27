@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.widget.TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
@@ -36,6 +37,29 @@
             android:textColor="@android:color/black"
             android:gravity="end"
             android:padding="8dp" />
+
+        <android.widget.ImageButton
+            android:id="@+id/ismageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_bookmark_f"
+            />
+
+    </android.widget.TableRow>
+
+    <android.widget.TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <android.widget.ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_bookmark_f"
+            />
 
     </android.widget.TableRow>
 </android.widget.TableLayout>

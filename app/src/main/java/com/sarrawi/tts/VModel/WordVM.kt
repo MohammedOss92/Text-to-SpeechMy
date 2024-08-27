@@ -71,6 +71,9 @@ class WordVM constructor(application : Application) : ViewModel() {
 
     fun getAlltv_verbsViewModel(): LiveData<List<SealedClass.Tv_verbs>> = wordRepo.getAlltv_verbsRepo()
 
+
+
+
     class WordVMFactory(private val application: Application): ViewModelProvider.Factory{
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if(modelClass.isAssignableFrom(WordVM::class.java)){

@@ -1,0 +1,55 @@
+//İŞØ ÇÍÏİ comment Úä åÏæá
+//    // Şã ÈÅÚÇÏÉ ÊÚííä ßá ÇáÅÔÇÑÇÊ ÇáãÑÌÚíÉ Åáì false
+//    @Query("UPDATE Words SET bookmark = 0 WHERE bookmark = 1")
+//    suspend fun resetBookmarksInWords()
+//    @Query("UPDATE Words_two SET bookmark = 0 WHERE bookmark = 1")
+//    suspend fun resetBookmarksInWordsTwo()
+//    // ÊÍÏíË ÇáßáãÉ ÈæÖÚåÇ ßãİÖáÉ ÌÏíÏÉ
+//    @Update
+//    suspend fun updateWord(word: SealedClass.Word)
+//    @Update
+//    suspend fun updateWordsTwo(word: SealedClass.Words_two)
+//    @Transaction
+//    suspend fun setBookmarkForWord(newBookmark: SealedClass.Word) {
+//        // ÅÚÇÏÉ ÊÚííä ÇáÅÔÇÑÇÊ ÇáãÑÌÚíÉ ÇáÍÇáíÉ
+//        resetBookmarksInWords()
+//        // ÊÚííä ÇáÅÔÇÑÉ ÇáãÑÌÚíÉ ÇáÌÏíÏÉ
+//        updateWord(newBookmark.copy(bookmark = true))
+//    }
+//    @Transaction
+//    suspend fun setBookmarkForWordsTwo(newBookmark: SealedClass.Words_two) {
+//        resetBookmarksInWordsTwo()
+//        updateWordsTwo(newBookmark.copy(bookmark = true))
+//    }
+
+
+// ÇÓÊÏÚÇÁ áÊÚííä ÅÔÇÑÉ ãÑÌÚíÉ ÌÏíÏÉ İí ÌÏæá Words
+//    suspend fun setBookmarkForWord(newBookmark: SealedClass.Word) {
+//        WordDao.setBookmarkForWord(newBookmark)
+//    }
+//
+//    // ÇÓÊÏÚÇÁ áÊÚííä ÅÔÇÑÉ ãÑÌÚíÉ ÌÏíÏÉ İí ÌÏæá Words_two
+//    suspend fun setBookmarkForWordsTwo(newBookmark: SealedClass.Words_two) {
+//        WordDao.setBookmarkForWordsTwo(newBookmark)
+//    }
+
+  fun setBookmarkForWord(word: SealedClass.Word) {
+//        viewModelScope.launch {
+//            wordRepo.setBookmarkForWord(word)
+//        }
+//    }
+//
+//    fun setBookmarkForWordsTwo(wordsTwo: SealedClass.Words_two) {
+//        viewModelScope.launch {
+//            wordRepo.setBookmarkForWordsTwo(wordsTwo)
+//        }
+//    }
+
+    //    var bookmark: Boolean = false // ÅÖÇİÉ ÍŞá bookmark
+ @Entity(tableName = "bookmark_Words")
+    //    data class WordBookmark(
+    //        @PrimaryKey(autoGenerate = true)
+    //        @ColumnInfo("wordID")
+    //        val wordID: Int
+    //    )
+    //    @ColumnInfo("bookmark")
