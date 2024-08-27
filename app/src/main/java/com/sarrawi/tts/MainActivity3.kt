@@ -103,7 +103,14 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
     /* 0 -> setUpRecyclerView(wordVM.getAllWords(), SealedClass.Word::class.java)
             1 -> setUpRecyclerView(wordVM.getAllWords_twoViewModel(), SealedClass.Words_two::class.java)
             2 -> setUpRecyclerView(wordVM.getAllWords_threeViewModel(), SealedClass.Word_three::class.java)*/
-
+//الـ Generic Class هو مفهوم في البرمجة يتيح لك تعريف فئات (Classes) أو واجهات (Interfaces) أو دوال (Functions) بحيث يمكن أن تعمل مع أنواع متعددة من البيانات بطريقة مرنة وآمنة.
+//
+//لماذا نستخدم الـ Generics؟
+//مرونة أعلى: يمكنك استخدام نفس الكود مع أنواع مختلفة دون الحاجة إلى كتابة كود مكرر.
+//أمان نوع البيانات: يقلل من الأخطاء التي قد تحدث بسبب تحويل الأنواع غير الصحيح.
+//كيفية تعريف واستخدام Generic Class
+//1. تعريف Generic Class:
+//يمكنك تعريف فئة جنيريكية باستخدام معلمات النوع (T، E، K، V، وغيرها) التي تحدد نوع البيانات الذي سيعمل عليه.
     private var currentLiveData: LiveData<List<Any>>? = null
 
     private fun <T> setUpRecyclerView(liveData: LiveData<List<T>>, itemType: Class<T>) {
@@ -220,20 +227,83 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
             2 -> setUpRecyclerView(wordVM.getAllWord_threeViewModel(), SealedClass.Word_three::class.java)
             3 -> setUpRecyclerView(wordVM.getAlltb_AdjectivesViewModel(), SealedClass.Tb_Adjectives::class.java)
             4 -> setUpRecyclerView(wordVM.getAlltb_Clothes_and_toilet_articlesViewModel(), SealedClass.Tb_Clothes_and_toilet_articles::class.java)
+            5 -> setUpRecyclerView(wordVM.getAlltb_ColoursViewModel(), SealedClass.Tb_Colours::class.java)
+            6 -> setUpRecyclerView(wordVM.getAlltb_FamilyViewModel(), SealedClass.Tb_Family::class.java)
+            7 -> setUpRecyclerView(wordVM.getAlltb_fruitViewModel(), SealedClass.Tb_fruit::class.java)
+            8 -> setUpRecyclerView(wordVM.getAlltb_HouseandfurnitureViewModel(), SealedClass.Tb_Houseandfurniture::class.java)
+            9 -> setUpRecyclerView(wordVM.getAlltb_Human_bodyViewModel(), SealedClass.Tb_Human_body::class.java)
+            10-> setUpRecyclerView(wordVM.getAlltb_jobsViewModel(), SealedClass.Tb_jobs::class.java)
+            11 -> setUpRecyclerView(wordVM.getAlltb_Kitchen_toolsViewModel(), SealedClass.Tb_Kitchen_tools::class.java)
+            12 -> setUpRecyclerView(wordVM.getAlltb_placesViewModel(), SealedClass.Tb_places::class.java)
+            13 -> setUpRecyclerView(wordVM.getAlltb_PronounViewModel(), SealedClass.Tb_Pronoun::class.java)
+            14 -> setUpRecyclerView(wordVM.getAlltb_schoolViewModel(), SealedClass.Tb_school::class.java)
+            15 -> setUpRecyclerView(wordVM.getAlltb_Similar_wordsViewModel(), SealedClass.Tb_Similar_words::class.java)
+            16 -> setUpRecyclerView(wordVM.getAlltb_The_animalsViewModel(), SealedClass.Tb_The_animals::class.java)
+            17 -> setUpRecyclerView(wordVM.getAlltb_transportsViewModel(), SealedClass.Tb_transports::class.java)
+            18 -> setUpRecyclerView(wordVM.getAlltv_verbsViewModel(), SealedClass.Tv_verbs::class.java)
             // Add more cases as needed...
         }
     }
     private fun performSearchForPosition(position: Int, query: String) {
         when (position) {
-            0 -> wordVM.Search1(query).observe(this@MainActivity3) { results ->
+            0 -> wordVM.search1(query).observe(this@MainActivity3) { results ->
                 updateRecyclerView(results)
             }
-            1 -> wordVM.Search2(query).observe(this@MainActivity3) { results ->
+            1 -> wordVM.search2(query).observe(this@MainActivity3) { results ->
                 updateRecyclerView(results)
             }
             2 -> wordVM.search3(query).observe(this@MainActivity3) { results ->
                 updateRecyclerView(results)
             }
+            3 -> wordVM.search4(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            4 -> wordVM.search5(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            5 -> wordVM.search6(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            6 -> wordVM.search7(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            7 -> wordVM.search8(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            8 -> wordVM.search9(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            9 -> wordVM.search10(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            10 -> wordVM.search11(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            11 -> wordVM.search12(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            12 -> wordVM.search13(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            13 -> wordVM.search14(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            14 -> wordVM.search15(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            15 -> wordVM.search16(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            16 -> wordVM.search17(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            17 -> wordVM.search18(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+            18 -> wordVM.search19(query).observe(this@MainActivity3) { results ->
+                updateRecyclerView(results)
+            }
+
             // Add more cases as needed...
         }
     }
@@ -250,6 +320,55 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
             results.isNotEmpty() && results[0] is SealedClass.Word_three -> {
                 adapterWord.wordsList = results as List<SealedClass.Word_three>
             }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_Adjectives -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_Adjectives>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_Clothes_and_toilet_articles -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_Clothes_and_toilet_articles>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_Colours -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_Colours>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_Family -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_Family>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_fruit -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_fruit>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_Houseandfurniture -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_Houseandfurniture>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_Human_body -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_Human_body>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_jobs -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_jobs>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_Kitchen_tools -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_Kitchen_tools>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_places -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_places>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_Pronoun -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_Pronoun>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_school -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_school>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_Similar_words -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_Similar_words>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_The_animals -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_The_animals>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tb_transports -> {
+                adapterWord.wordsList = results as List<SealedClass.Tb_transports>
+            }
+            results.isNotEmpty() && results[0] is SealedClass.Tv_verbs -> {
+                adapterWord.wordsList = results as List<SealedClass.Tv_verbs>
+            }
+
             // أضف المزيد من الحالات حسب الحاجة
 
             else -> {

@@ -34,6 +34,70 @@ class WordRepo (app: Application) {
         return WordDao.searchWords3(searchQuery)
     }
 
+    fun searchRepo4(searchQuery: String): LiveData<List<SealedClass.Tb_Adjectives>> {
+        return WordDao.search4(searchQuery)
+    }
+
+    fun searchRepo5(searchQuery: String): LiveData<List<SealedClass.Tb_Clothes_and_toilet_articles>> {
+        return WordDao.search5(searchQuery)
+    }
+
+    fun searchRepo6(searchQuery: String): LiveData<List<SealedClass.Tb_Colours>> {
+        return WordDao.search6(searchQuery)
+    }
+
+    fun searchRepo7(searchQuery: String): LiveData<List<SealedClass.Tb_Family>> {
+        return WordDao.search7(searchQuery)
+    }
+
+    fun searchRepo8(searchQuery: String): LiveData<List<SealedClass.Tb_fruit>> {
+        return WordDao.search8(searchQuery)
+    }
+
+    fun searchRepo9(searchQuery: String): LiveData<List<SealedClass.Tb_Houseandfurniture>> {
+        return WordDao.search9(searchQuery)
+    }
+
+    fun searchRepo10(searchQuery: String): LiveData<List<SealedClass.Tb_Human_body>> {
+        return WordDao.search10(searchQuery)
+    }
+
+    fun searchRepo11(searchQuery: String): LiveData<List<SealedClass.Tb_jobs>> {
+        return WordDao.search11(searchQuery)
+    }
+
+    fun searchRepo12(searchQuery: String): LiveData<List<SealedClass.Tb_Kitchen_tools>> {
+        return WordDao.search12(searchQuery)
+    }
+
+    fun searchRepo13(searchQuery: String): LiveData<List<SealedClass.Tb_places>> {
+        return WordDao.search13(searchQuery)
+    }
+
+    fun searchRepo14(searchQuery: String): LiveData<List<SealedClass.Tb_Pronoun>> {
+        return WordDao.search14(searchQuery)
+    }
+
+    fun searchRepo15(searchQuery: String): LiveData<List<SealedClass.Tb_school>> {
+        return WordDao.search15(searchQuery)
+    }
+
+    fun searchRepo16(searchQuery: String): LiveData<List<SealedClass.Tb_Similar_words>> {
+        return WordDao.search16(searchQuery)
+    }
+
+    fun searchRepo17(searchQuery: String): LiveData<List<SealedClass.Tb_The_animals>> {
+        return WordDao.search17(searchQuery)
+    }
+
+    fun searchRepo18(searchQuery: String): LiveData<List<SealedClass.Tb_transports>> {
+        return WordDao.search18(searchQuery)
+    }
+
+    fun searchRepo19(searchQuery: String): LiveData<List<SealedClass.Tv_verbs>> {
+        return WordDao.search19(searchQuery)
+    }
+
     fun getAllWords_twoRepo(): LiveData<List<SealedClass.Words_two>>{
         return WordDao.getAllWords_twoDao()
     }

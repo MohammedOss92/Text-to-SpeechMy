@@ -15,9 +15,25 @@ class WordVM constructor(application : Application) : ViewModel() {
 
     fun getAllWords(): LiveData<List<SealedClass.Word>> = wordRepo.getAllWords()
 
-    fun Search1(searchQuery: String): LiveData<List<SealedClass.Word>> = wordRepo.searchRepo1(searchQuery)
-    fun Search2(searchQuery: String): LiveData<List<SealedClass.Words_two>> = wordRepo.searchRepo2(searchQuery)
+    fun search1(searchQuery: String): LiveData<List<SealedClass.Word>> = wordRepo.searchRepo1(searchQuery)
+    fun search2(searchQuery: String): LiveData<List<SealedClass.Words_two>> = wordRepo.searchRepo2(searchQuery)
     fun search3(searchQuery: String): LiveData<List<SealedClass.Word_three>> = wordRepo.searchRepo3(searchQuery)
+    fun search4(searchQuery: String): LiveData<List<SealedClass.Tb_Adjectives>> = wordRepo.searchRepo4(searchQuery)
+    fun search5(searchQuery: String): LiveData<List<SealedClass.Tb_Clothes_and_toilet_articles>> = wordRepo.searchRepo5(searchQuery)
+    fun search6(searchQuery: String): LiveData<List<SealedClass.Tb_Colours>> = wordRepo.searchRepo6(searchQuery)
+    fun search7(searchQuery: String): LiveData<List<SealedClass.Tb_Family>> = wordRepo.searchRepo7(searchQuery)
+    fun search8(searchQuery: String): LiveData<List<SealedClass.Tb_fruit>> = wordRepo.searchRepo8(searchQuery)
+    fun search9(searchQuery: String): LiveData<List<SealedClass.Tb_Houseandfurniture>> = wordRepo.searchRepo9(searchQuery)
+    fun search10(searchQuery: String): LiveData<List<SealedClass.Tb_Human_body>> = wordRepo.searchRepo10(searchQuery)
+    fun search11(searchQuery: String): LiveData<List<SealedClass.Tb_jobs>> = wordRepo.searchRepo11(searchQuery)
+    fun search12(searchQuery: String): LiveData<List<SealedClass.Tb_Kitchen_tools>> = wordRepo.searchRepo12(searchQuery)
+    fun search13(searchQuery: String): LiveData<List<SealedClass.Tb_places>> = wordRepo.searchRepo13(searchQuery)
+    fun search14(searchQuery: String): LiveData<List<SealedClass.Tb_Pronoun>> = wordRepo.searchRepo14(searchQuery)
+    fun search15(searchQuery: String): LiveData<List<SealedClass.Tb_school>> = wordRepo.searchRepo15(searchQuery)
+    fun search16(searchQuery: String): LiveData<List<SealedClass.Tb_Similar_words>> = wordRepo.searchRepo16(searchQuery)
+    fun search17(searchQuery: String): LiveData<List<SealedClass.Tb_The_animals>> = wordRepo.searchRepo17(searchQuery)
+    fun search18(searchQuery: String): LiveData<List<SealedClass.Tb_transports>> = wordRepo.searchRepo18(searchQuery)
+    fun search19(searchQuery: String): LiveData<List<SealedClass.Tv_verbs>> = wordRepo.searchRepo19(searchQuery)
 
     fun getAllWords_twoViewModel(): LiveData<List<SealedClass.Words_two>> = wordRepo.getAllWords_twoRepo()
 
