@@ -3,6 +3,8 @@ package com.sarrawi.tts.wordDb
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
+import androidx.room.Transaction
+import androidx.room.Update
 import com.sarrawi.tts.model.SealedClass
 import com.sarrawi.tts.model.Word
 
@@ -131,6 +133,33 @@ interface WordsDao {
     fun search19(query: String): LiveData<List<SealedClass.Tv_verbs>>
 
 
+    @Query("UPDATE Words SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksInWords()
+    @Query("UPDATE Words_two SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksInWordsTwo()
+    // ����� ������ ������ ������ �����
+    @Update
+    suspend fun updateWord(word: SealedClass.Word)
+    @Update
+    suspend fun updateWordsTwo(word: SealedClass.Words_two)
+
+    //@Transaction: هذه الأنوتيشن تضمن أن الدالة تعمل كمعاملة واحدة (Transaction).
+    // إذا حدث خطأ في أي جزء من المعاملة، سيتم التراجع عن كل التغييرات التي تمت فيها، مما يضمن عدم ترك قاعدة البيانات في حالة غير متناسقة.
+    @Transaction
+    suspend fun setBookmarkForWord(newBookmark: SealedClass.Word) {
+        // ����� ����� �������� �������� �������
+        resetBookmarksInWords()
+        // ����� ������� �������� �������
+        updateWord(newBookmark.copy(bookmark = 1))
+    }
+
+    //@Transaction: هذه الأنوتيشن تضمن أن الدالة تعمل كمعاملة واحدة (Transaction).
+    // إذا حدث خطأ في أي جزء من المعاملة، سيتم التراجع عن كل التغييرات التي تمت فيها، مما يضمن عدم ترك قاعدة البيانات في حالة غير متناسقة.
+    @Transaction
+    suspend fun setBookmarkForWordsTwo(newBookmark: SealedClass.Words_two) {
+        resetBookmarksInWordsTwo()
+        updateWordsTwo(newBookmark.copy(bookmark = 1))
+    }
 
 //    constructor() : this(0, "", "")
 }

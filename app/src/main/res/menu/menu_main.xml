@@ -1,0 +1,10 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- عناصر القائمة الأخرى -->
+    <item
+        android:id="@+id/action_scroll_to_top"
+        android:title="Scroll to Top"
+        android:icon="@drawable/ic_bookmark_t"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+</menu>

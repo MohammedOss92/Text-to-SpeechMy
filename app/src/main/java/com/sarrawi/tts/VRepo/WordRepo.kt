@@ -169,4 +169,15 @@ class WordRepo (app: Application) {
     fun getAlltv_verbsRepo(): LiveData<List<SealedClass.Tv_verbs>>{
         return WordDao.getAlltv_verbsDao()
     }
+
+        suspend fun setBookmarkForWord(newBookmark: SealedClass.Word) {
+        WordDao.setBookmarkForWord(newBookmark)
+    }
+
+    // ������� ������ ����� ������ ����� �� ���� Words_two
+    suspend fun setBookmarkForWordsTwo(newBookmark: SealedClass.Words_two) {
+        WordDao.setBookmarkForWordsTwo(newBookmark)
+    }
+
+
 }

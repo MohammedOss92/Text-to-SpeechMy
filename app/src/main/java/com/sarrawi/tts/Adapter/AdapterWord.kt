@@ -5,10 +5,7 @@ import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +15,8 @@ import java.util.*
 
 
 class AdapterWord( private val context: Context,
-                  private val tts: TextToSpeech
+                  private val tts: TextToSpeech,
+                   private val onBookmarkClick: (SealedClass) -> Unit
 ) :
     RecyclerView.Adapter<AdapterWord.WordViewHolder>(), Filterable {
     var wordsListFull: List<SealedClass> = listOf()
@@ -82,7 +80,7 @@ class AdapterWord( private val context: Context,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_word, parent, false) // افترضنا أن لديك layout مشترك للجميع
-        return WordViewHolder(view,tts)
+        return WordViewHolder(view,tts,onBookmarkClick)
     }
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
@@ -94,15 +92,21 @@ class AdapterWord( private val context: Context,
     override fun getItemCount(): Int = wordsList.size
 
 
-    class WordViewHolder(itemView: View, private val tts: TextToSpeech) : RecyclerView.ViewHolder(itemView) {
+    class WordViewHolder(itemView: View, private val tts: TextToSpeech,private val onBookmarkClick: (SealedClass) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         private val englishWordTextView: TextView = itemView.findViewById(R.id.englishWord)
         private val arabicWordTextView: TextView = itemView.findViewById(R.id.arabicMeaning)
-//        val bookmarkButton: ImageView = itemView.findViewById(R.id.bookmarkButton)
+        val bookmarkButton : ImageButton = itemView.findViewById(R.id.imageButton)
+        val bookmarkBtn    : ImageButton = itemView.findViewById(R.id.ismageButton)
+
+
+
+
 
         fun bind(wordEntity: SealedClass) {
             when (wordEntity) {
                 is SealedClass.Word -> {
+                    var onItemClick: (( SealedClass.Word, Int) -> Unit)? = null
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
 
@@ -112,6 +116,18 @@ class AdapterWord( private val context: Context,
 
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
+                    }
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
                     }
                 }
 
@@ -126,6 +142,19 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
 
                 is SealedClass.Word_three -> {
@@ -139,6 +168,19 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
                 is SealedClass.Tb_Adjectives -> {
                     englishWordTextView.text = wordEntity.English_Word
@@ -150,6 +192,19 @@ class AdapterWord( private val context: Context,
 
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
+                    }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
                     }
                 }
 
@@ -164,6 +219,19 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
 
                 is SealedClass.Tb_Colours ->{
@@ -176,6 +244,18 @@ class AdapterWord( private val context: Context,
 
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
+                    }
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
                     }
                 }
 
@@ -190,6 +270,18 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
 
                 is SealedClass.Tb_fruit ->{
@@ -202,6 +294,18 @@ class AdapterWord( private val context: Context,
 
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
+                    }
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
                     }
                 }
 
@@ -216,6 +320,18 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
 
                 is SealedClass.Tb_Human_body ->{
@@ -228,6 +344,19 @@ class AdapterWord( private val context: Context,
 
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
+                    }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
                     }
                 }
 
@@ -242,6 +371,19 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
 
                 is SealedClass.Tb_Kitchen_tools ->{
@@ -254,6 +396,19 @@ class AdapterWord( private val context: Context,
 
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
+                    }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
                     }
                 }
 
@@ -268,6 +423,19 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
 
                 is SealedClass.Tb_Pronoun ->{
@@ -280,6 +448,19 @@ class AdapterWord( private val context: Context,
 
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
+                    }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
                     }
                 }
 
@@ -294,6 +475,19 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
 
                 is SealedClass.Tb_Similar_words ->{
@@ -306,6 +500,19 @@ class AdapterWord( private val context: Context,
 
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
+                    }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
                     }
                 }
 
@@ -320,6 +527,19 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
 
                 is SealedClass.Tb_transports ->{
@@ -333,6 +553,19 @@ class AdapterWord( private val context: Context,
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
+                    }
                 }
 
                 is SealedClass.Tv_verbs ->{
@@ -345,6 +578,19 @@ class AdapterWord( private val context: Context,
 
                     arabicWordTextView.setOnClickListener {
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
+                    }
+
+                    if(wordEntity.bookmark==1){
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
+                    }
+                    else{
+                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+                        bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
+                    }
+
+                    bookmarkButton.setOnClickListener {
+                        onBookmarkClick(wordEntity)
                     }
                 }
 

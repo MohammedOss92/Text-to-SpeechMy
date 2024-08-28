@@ -15,8 +15,10 @@ sealed class SealedClass {
         var English_Word :String?,
         @ColumnInfo("Arabic_Word")
         var Arabic_Word :String?,
+        @ColumnInfo("bookmark")
+        var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="Words_two")
@@ -27,8 +29,10 @@ sealed class SealedClass {
                              var English_Word :String?,
                              @ColumnInfo("Arabic_Word")
                              var Arabic_Word :String?,
+                             @ColumnInfo("bookmark")
+                                 var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="Word_three")
@@ -39,8 +43,10 @@ sealed class SealedClass {
                               var English_Word :String?,
                               @ColumnInfo("Arabic_Word")
                               var Arabic_Word :String?,
+                              @ColumnInfo("bookmark")
+                                  var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_Adjectives")
@@ -51,8 +57,10 @@ sealed class SealedClass {
                                  var English_Word :String?,
                                  @ColumnInfo("Arabic_Word")
                                  var Arabic_Word :String?,
+                                 @ColumnInfo("bookmark")
+                                     var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_Clothes_and_toilet_articles")
@@ -63,8 +71,10 @@ sealed class SealedClass {
                                                   var English_Word :String?,
                                                   @ColumnInfo("Arabic_Word")
                                                   var Arabic_Word :String?,
+                                                  @ColumnInfo("bookmark")
+                                                      var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_Colours")
@@ -75,8 +85,10 @@ sealed class SealedClass {
                               var English_Word :String?,
                               @ColumnInfo("Arabic_Word")
                               var Arabic_Word :String?,
+                              @ColumnInfo("bookmark")
+                                  var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_Family")
@@ -87,8 +99,10 @@ sealed class SealedClass {
                              var English_Word :String?,
                              @ColumnInfo("Arabic_Word")
                              var Arabic_Word :String?,
+                             @ColumnInfo("bookmark")
+                                 var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_fruit")
@@ -99,8 +113,10 @@ sealed class SealedClass {
                             var English_Word :String?,
                             @ColumnInfo("Arabic_Word")
                             var Arabic_Word :String?,
+                            @ColumnInfo("bookmark")
+                                var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_Houseandfurniture")
@@ -111,8 +127,10 @@ sealed class SealedClass {
                                         var English_Word :String?,
                                         @ColumnInfo("Arabic_Word")
                                         var Arabic_Word :String?,
+                                        @ColumnInfo("bookmark")
+                                            var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_Human_body")
@@ -123,8 +141,10 @@ sealed class SealedClass {
                                  var English_Word :String?,
                                  @ColumnInfo("Arabic_Word")
                                  var Arabic_Word :String?,
+                                 @ColumnInfo("bookmark")
+                                     var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_jobs")
@@ -135,8 +155,10 @@ sealed class SealedClass {
                            var English_Word :String?,
                            @ColumnInfo("Arabic_Word")
                            var Arabic_Word :String?,
+                           @ColumnInfo("bookmark")
+                               var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_Kitchen_tools")
@@ -147,8 +169,10 @@ sealed class SealedClass {
                                     var English_Word :String?,
                                     @ColumnInfo("Arabic_Word")
                                     var Arabic_Word :String?,
+                                    @ColumnInfo("bookmark")
+                                        var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_places")
@@ -159,8 +183,10 @@ sealed class SealedClass {
                              var English_Word :String?,
                              @ColumnInfo("Arabic_Word")
                              var Arabic_Word :String?,
+                             @ColumnInfo("bookmark")
+                                 var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_Pronoun")
@@ -171,8 +197,10 @@ sealed class SealedClass {
                               var English_Word :String?,
                               @ColumnInfo("Arabic_Word")
                               var Arabic_Word :String?,
+                              @ColumnInfo("bookmark")
+                                  var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_school")
@@ -183,8 +211,10 @@ sealed class SealedClass {
                              var English_Word :String?,
                              @ColumnInfo("Arabic_Word")
                              var Arabic_Word :String?,
+                             @ColumnInfo("bookmark")
+                                 var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_Similar_words")
@@ -195,8 +225,10 @@ sealed class SealedClass {
                                     var English_Word :String?,
                                     @ColumnInfo("Arabic_Word")
                                     var Arabic_Word :String?,
+                                    @ColumnInfo("bookmark")
+                                        var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_The_animals")
@@ -207,8 +239,10 @@ sealed class SealedClass {
                                   var English_Word :String?,
                                   @ColumnInfo("Arabic_Word")
                                   var Arabic_Word :String?,
+                                  @ColumnInfo("bookmark")
+                                      var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tb_transports")
@@ -219,8 +253,10 @@ sealed class SealedClass {
                                  var English_Word :String?,
                                  @ColumnInfo("Arabic_Word")
                                  var Arabic_Word :String?,
+                                 @ColumnInfo("bookmark")
+                                     var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 
     @Entity(tableName ="tv_verbs")
@@ -231,7 +267,9 @@ sealed class SealedClass {
                             var English_Word :String?,
                             @ColumnInfo("Arabic_Word")
                             var Arabic_Word :String?,
+                            @ColumnInfo("bookmark")
+                                var bookmark: Int =0
     ): SealedClass(){
-        constructor() : this(0, "", "")
+        constructor() : this(0, "", "",0)
     }
 }

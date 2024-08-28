@@ -4,9 +4,11 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.sarrawi.tts.VRepo.WordRepo
 import com.sarrawi.tts.model.SealedClass
 import com.sarrawi.tts.model.Word
+import kotlinx.coroutines.launch
 
 class WordVM constructor(application : Application) : ViewModel() {
 
@@ -72,7 +74,17 @@ class WordVM constructor(application : Application) : ViewModel() {
     fun getAlltv_verbsViewModel(): LiveData<List<SealedClass.Tv_verbs>> = wordRepo.getAlltv_verbsRepo()
 
 
+    fun setBookmarkForWord(word: SealedClass.Word) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForWord(word)
+        }
+    }
 
+    fun setBookmarkForWordsTwo(wordsTwo: SealedClass.Words_two) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForWordsTwo(wordsTwo)
+        }
+    }
 
     class WordVMFactory(private val application: Application): ViewModelProvider.Factory{
         override fun <T : ViewModel> create(modelClass: Class<T>): T {

@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import android.widget.AdapterView
 import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
@@ -49,8 +50,26 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
         recyclerView = findViewById(R.id.recyclerView)
         spinner = findViewById(R.id.spinner)
 
+        val onBookmarkClick: (SealedClass) -> Unit = { wordEntity ->
+            when (wordEntity) {
+                is SealedClass.Word -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForWord(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Words_two -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForWordsTwo(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                // أضف المزيد من الحالات إذا لزم الأمر
+                else -> {}
+            }
+        }
+
+
+        // إعداد AdapterWord و RecyclerView وتمرير الدالة onBookmarkClick
+        adapterWord = AdapterWord(this@MainActivity3, tts, onBookmarkClick)
         // إعداد AdapterWord و RecyclerView
-        adapterWord = AdapterWord(this@MainActivity3, tts)
+//        adapterWord = AdapterWord(this@MainActivity3, tts)
         recyclerView.layoutManager = LinearLayoutManager(this@MainActivity3)
         recyclerView.adapter = adapterWord
         // إعداد Spinner
@@ -394,6 +413,42 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_scroll_to_top -> {
+//                recyclerView.scrollToPosition(0)
+                scrollToBookmark()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
+    private fun scrollToBookmark() {
+        val adapter = recyclerView.adapter as AdapterWord
+
+        // Find the position of the item with bookmark = 1
+        val position = adapter.wordsListFull.indexOfFirst {
+            when (it) {
+                is SealedClass.Word -> it.bookmark == 1
+                is SealedClass.Words_two -> it.bookmark == 1
+                is SealedClass.Word_three -> it.bookmark == 1
+                else -> false
+            }
+        }
+
+        if (position != -1) {
+            recyclerView.scrollToPosition(position)
+        } else {
+            Toast.makeText(this, "No bookmarked item found", Toast.LENGTH_SHORT).show()
+        }
+    }
 
 
 
