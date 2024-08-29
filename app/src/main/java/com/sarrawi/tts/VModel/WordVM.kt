@@ -82,7 +82,109 @@ class WordVM constructor(application : Application) : ViewModel() {
 
     fun setBookmarkForWordsTwo(wordsTwo: SealedClass.Words_two) {
         viewModelScope.launch {
-            wordRepo.setBookmarkForWordsTwo(wordsTwo)
+            wordRepo.setBookmarkForWords_two(wordsTwo)
+        }
+    }
+
+    fun setBookmarkForWord_three(word_three: SealedClass.Word_three) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForWord_three(word_three)
+        }
+    }
+
+    fun setBookmarkForTb_Adjectives(tb_Adjectives: SealedClass.Tb_Adjectives) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_Adjectives(tb_Adjectives)
+        }
+    }
+
+    fun setBookmarkForTb_Clothes_and_toilet_articles(tb_Clothes_and_toilet_articles: SealedClass.Tb_Clothes_and_toilet_articles) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_Clothes_and_toilet_articles(tb_Clothes_and_toilet_articles)
+        }
+    }
+
+    fun setBookmarkForTb_Colours(tb_Colours: SealedClass.Tb_Colours) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_Colours(tb_Colours)
+        }
+    }
+
+    fun setBookmarkForTb_Family(tTb_Family: SealedClass.Tb_Family) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_Family(tTb_Family)
+        }
+    }
+
+    fun setBookmarkForTb_fruit(tTb_fruit: SealedClass.Tb_fruit) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_fruit(tTb_fruit)
+        }
+    }
+
+    fun setBookmarkForTb_Houseandfurniture(tTb_Houseandfurniture: SealedClass.Tb_Houseandfurniture) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_Houseandfurniture(tTb_Houseandfurniture)
+        }
+    }
+
+    fun setBookmarkForTb_Human_body(tTb_Human_body: SealedClass.Tb_Human_body) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_Human_body(tTb_Human_body)
+        }
+    }
+
+    fun setBookmarkForTb_jobs(tTb_jobs: SealedClass.Tb_jobs) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_jobs(tTb_jobs)
+        }
+    }
+
+    fun setBookmarkForTb_Kitchen_tools(tTb_Kitchen_tools: SealedClass.Tb_Kitchen_tools) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_Kitchen_tools(tTb_Kitchen_tools)
+        }
+    }
+
+    fun setBookmarkForTb_places(tTb_places: SealedClass.Tb_places) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_places(tTb_places)
+        }
+    }
+
+    fun setBookmarkForTb_Pronoun(tTb_Pronoun: SealedClass.Tb_Pronoun) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_Pronoun(tTb_Pronoun)
+        }
+    }
+
+    fun setBookmarkForTb_school(tTb_school: SealedClass.Tb_school) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_school(tTb_school)
+        }
+    }
+
+    fun setBookmarkForTb_Similar_words(tTb_Similar_words: SealedClass.Tb_Similar_words) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_Similar_words(tTb_Similar_words)
+        }
+    }
+
+    fun setBookmarkForTb_The_animals(wordsTwo: SealedClass.Tb_The_animals) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_The_animals(wordsTwo)
+        }
+    }
+
+    fun setBookmarkForTb_transports(tTb_transports: SealedClass.Tb_transports) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTb_transports(tTb_transports)
+        }
+    }
+
+    fun setBookmarkForTv_verbs(tTv_verbs: SealedClass.Tv_verbs) {
+        viewModelScope.launch {
+            wordRepo.setBookmarkForTv_verbs(tTv_verbs)
         }
     }
 

@@ -60,6 +60,76 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
                     val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
                     wordVM.setBookmarkForWordsTwo(wordEntity.copy(bookmark = newBookmarkState))
                 }
+
+                is SealedClass.Word_three -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForWord_three(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_Adjectives -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_Adjectives(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_Clothes_and_toilet_articles -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_Clothes_and_toilet_articles(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_Colours -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_Colours(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_Family -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_Family(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_fruit -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_fruit(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_Houseandfurniture -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_Houseandfurniture(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_Human_body -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_Human_body(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_jobs -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_jobs(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_Kitchen_tools -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_Kitchen_tools(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_places -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_places(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_Pronoun -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_Pronoun(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_school -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_school(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_Similar_words -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_Similar_words(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_The_animals -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_The_animals(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tb_transports -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTb_transports(wordEntity.copy(bookmark = newBookmarkState))
+                }
+                is SealedClass.Tv_verbs -> {
+                    val newBookmarkState = if (wordEntity.bookmark == 0) 1 else 0
+                    wordVM.setBookmarkForTv_verbs(wordEntity.copy(bookmark = newBookmarkState))
+                }
+
                 // أضف المزيد من الحالات إذا لزم الأمر
                 else -> {}
             }
@@ -397,6 +467,10 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
         adapterWord.notifyDataSetChanged()
     }
 
+    fun bookmark(){
+
+    }
+
 
 
     private fun setUpRv(liveData: LiveData<List<SealedClass.Word>>) {
@@ -439,6 +513,22 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
                 is SealedClass.Word -> it.bookmark == 1
                 is SealedClass.Words_two -> it.bookmark == 1
                 is SealedClass.Word_three -> it.bookmark == 1
+                is SealedClass.Tb_Adjectives -> it.bookmark == 1
+                is SealedClass.Tb_Clothes_and_toilet_articles -> it.bookmark == 1
+                is SealedClass.Tb_Colours -> it.bookmark == 1
+                is SealedClass.Tb_Family -> it.bookmark == 1
+                is SealedClass.Tb_fruit -> it.bookmark == 1
+                is SealedClass.Tb_Houseandfurniture -> it.bookmark == 1
+                is SealedClass.Tb_Human_body -> it.bookmark == 1
+                is SealedClass.Tb_jobs -> it.bookmark == 1
+                is SealedClass.Tb_Kitchen_tools -> it.bookmark == 1
+                is SealedClass.Tb_places -> it.bookmark == 1
+                is SealedClass.Tb_Pronoun -> it.bookmark == 1
+                is SealedClass.Tb_school -> it.bookmark == 1
+                is SealedClass.Tb_Similar_words -> it.bookmark == 1
+                is SealedClass.Tb_The_animals -> it.bookmark == 1
+                is SealedClass.Tb_transports -> it.bookmark == 1
+                is SealedClass.Tv_verbs -> it.bookmark == 1
                 else -> false
             }
         }

@@ -170,13 +170,81 @@ class WordRepo (app: Application) {
         return WordDao.getAlltv_verbsDao()
     }
 
-        suspend fun setBookmarkForWord(newBookmark: SealedClass.Word) {
+    suspend fun setBookmarkForWord(newBookmark: SealedClass.Word) {
         WordDao.setBookmarkForWord(newBookmark)
     }
 
     // ������� ������ ����� ������ ����� �� ���� Words_two
-    suspend fun setBookmarkForWordsTwo(newBookmark: SealedClass.Words_two) {
+    suspend fun setBookmarkForWords_two(newBookmark: SealedClass.Words_two) {
         WordDao.setBookmarkForWordsTwo(newBookmark)
+    }
+
+    suspend fun setBookmarkForWord_three(newBookmark: SealedClass.Word_three) {
+        WordDao.setBookmarkForTWord_three(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_Adjectives(newBookmark: SealedClass.Tb_Adjectives) {
+        WordDao.setBookmarkForTb_Adjectives(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_Clothes_and_toilet_articles(newBookmark: SealedClass.Tb_Clothes_and_toilet_articles) {
+        WordDao.setBookmarkForTb_Clothes_and_toilet_articles(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_Colours(newBookmark: SealedClass.Tb_Colours) {
+        WordDao.setBookmarkForTb_Colours(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_Family(newBookmark: SealedClass.Tb_Family) {
+        WordDao.setBookmarkForTb_Family(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_fruit(newBookmark: SealedClass.Tb_fruit) {
+        WordDao.setBookmarkForTb_fruit(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_Houseandfurniture(newBookmark: SealedClass.Tb_Houseandfurniture) {
+        WordDao.setBookmarkForTb_Houseandfurniture(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_Human_body(newBookmark: SealedClass.Tb_Human_body) {
+        WordDao.setBookmarkForTb_Human_body(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_jobs(newBookmark: SealedClass.Tb_jobs) {
+        WordDao.setBookmarkForTb_jobs(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_Kitchen_tools(newBookmark: SealedClass.Tb_Kitchen_tools) {
+        WordDao.setBookmarkForTb_Kitchen_tools(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_places(newBookmark: SealedClass.Tb_places) {
+        WordDao.setBookmarkForTb_places(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_Pronoun(newBookmark: SealedClass.Tb_Pronoun) {
+        WordDao.setBookmarkForTb_Pronoun(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_school(newBookmark: SealedClass.Tb_school) {
+        WordDao.setBookmarkForTb_school(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_Similar_words(newBookmark: SealedClass.Tb_Similar_words) {
+        WordDao.setBookmarkForTb_Similar_words(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_The_animals(newBookmark: SealedClass.Tb_The_animals) {
+        WordDao.setBookmarkForTb_The_animals(newBookmark)
+    }
+
+    suspend fun setBookmarkForTb_transports(newBookmark: SealedClass.Tb_transports) {
+        WordDao.setBookmarkForTb_transports(newBookmark)
+    }
+
+    suspend fun setBookmarkForTv_verbs(newBookmark: SealedClass.Tv_verbs) {
+        WordDao.setBookmarkForTv_verbs(newBookmark)
     }
 
 

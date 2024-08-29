@@ -137,11 +137,81 @@ interface WordsDao {
     suspend fun resetBookmarksInWords()
     @Query("UPDATE Words_two SET bookmark = 0 WHERE bookmark = 1")
     suspend fun resetBookmarksInWordsTwo()
+    @Query("UPDATE Word_three SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksInWord_three()
+    @Query("UPDATE tb_Adjectives SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_Adjectives()
+    @Query("UPDATE tb_Clothes_and_toilet_articles SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_Clothes_and_toilet_articles()
+    @Query("UPDATE tb_Colours SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_Colours()
+    @Query("UPDATE tb_Family SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_Family()
+    @Query("UPDATE tb_fruit SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_fruit()
+    @Query("UPDATE tb_Houseandfurniture SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_Houseandfurniture()
+    @Query("UPDATE tb_Human_body SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_Human_body()
+    @Query("UPDATE tb_jobs SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_jobs()
+    @Query("UPDATE tb_Kitchen_tools SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_Kitchen_tools()
+    @Query("UPDATE tb_places SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_places()
+    @Query("UPDATE tb_Pronoun SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_Pronoun()
+    @Query("UPDATE tb_school SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_school()
+    @Query("UPDATE tb_Similar_words SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_Similar_words()
+    @Query("UPDATE tb_The_animals SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_The_animals()
+    @Query("UPDATE tb_transports SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntb_transports()
+    @Query("UPDATE tv_verbs SET bookmark = 0 WHERE bookmark = 1")
+    suspend fun resetBookmarksIntv_verbs()
+
     // ����� ������ ������ ������ �����
     @Update
     suspend fun updateWord(word: SealedClass.Word)
     @Update
     suspend fun updateWordsTwo(word: SealedClass.Words_two)
+    @Update
+    suspend fun updateWord_three(word: SealedClass.Word_three)
+    @Update
+    suspend fun updateTb_Adjectives(word: SealedClass.Tb_Adjectives)
+    @Update
+    suspend fun updateTb_Clothes_and_toilet_articles(word: SealedClass.Tb_Clothes_and_toilet_articles)
+    @Update
+    suspend fun updateTb_Colours(word: SealedClass.Tb_Colours)
+    @Update
+    suspend fun updateTb_Family(word: SealedClass.Tb_Family)
+    @Update
+    suspend fun updateTb_fruit(word: SealedClass.Tb_fruit)
+    @Update
+    suspend fun updateTb_Houseandfurniture(word: SealedClass.Tb_Houseandfurniture)
+    @Update
+    suspend fun updateTb_Human_body(word: SealedClass.Tb_Human_body)
+    @Update
+    suspend fun updateTb_jobs(word: SealedClass.Tb_jobs)
+    @Update
+    suspend fun updateTb_Kitchen_tools(word: SealedClass.Tb_Kitchen_tools)
+    @Update
+    suspend fun updateTb_places(word: SealedClass.Tb_places)
+    @Update
+    suspend fun updateTb_Pronoun(word: SealedClass.Tb_Pronoun)
+    @Update
+    suspend fun updateTb_school(word: SealedClass.Tb_school)
+    @Update
+    suspend fun updateTb_Similar_words(word: SealedClass.Tb_Similar_words)
+    @Update
+    suspend fun updateTb_The_animals(word: SealedClass.Tb_The_animals)
+    @Update
+    suspend fun updateTb_transports(word: SealedClass.Tb_transports)
+    @Update
+    suspend fun updateTv_verbs(word: SealedClass.Tv_verbs)
+
 
     //@Transaction: هذه الأنوتيشن تضمن أن الدالة تعمل كمعاملة واحدة (Transaction).
     // إذا حدث خطأ في أي جزء من المعاملة، سيتم التراجع عن كل التغييرات التي تمت فيها، مما يضمن عدم ترك قاعدة البيانات في حالة غير متناسقة.
@@ -160,6 +230,110 @@ interface WordsDao {
         resetBookmarksInWordsTwo()
         updateWordsTwo(newBookmark.copy(bookmark = 1))
     }
+
+    @Transaction
+    suspend fun setBookmarkForTWord_three(newBookmark: SealedClass.Word_three) {
+        resetBookmarksInWord_three()
+        updateWord_three(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_Adjectives(newBookmark: SealedClass.Tb_Adjectives) {
+        resetBookmarksIntb_Adjectives()
+        updateTb_Adjectives(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_Clothes_and_toilet_articles(newBookmark: SealedClass.Tb_Clothes_and_toilet_articles) {
+        resetBookmarksIntb_Clothes_and_toilet_articles()
+        updateTb_Clothes_and_toilet_articles(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_Colours(newBookmark: SealedClass.Tb_Colours) {
+        resetBookmarksIntb_Colours()
+        updateTb_Colours(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_Family(newBookmark: SealedClass.Tb_Family) {
+        resetBookmarksIntb_Family()
+        updateTb_Family(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_fruit(newBookmark: SealedClass.Tb_fruit) {
+        resetBookmarksIntb_fruit()
+        updateTb_fruit(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_Houseandfurniture(newBookmark: SealedClass.Tb_Houseandfurniture) {
+        resetBookmarksIntb_Houseandfurniture()
+        updateTb_Houseandfurniture(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_Human_body(newBookmark: SealedClass.Tb_Human_body) {
+        resetBookmarksIntb_Human_body()
+        updateTb_Human_body(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_jobs(newBookmark: SealedClass.Tb_jobs) {
+        resetBookmarksIntb_jobs()
+        updateTb_jobs(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_Kitchen_tools(newBookmark: SealedClass.Tb_Kitchen_tools) {
+        resetBookmarksIntb_Kitchen_tools()
+        updateTb_Kitchen_tools(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_places(newBookmark: SealedClass.Tb_places) {
+        resetBookmarksIntb_places()
+        updateTb_places(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_Pronoun(newBookmark: SealedClass.Tb_Pronoun) {
+        resetBookmarksIntb_Pronoun()
+        updateTb_Pronoun(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_school(newBookmark: SealedClass.Tb_school) {
+        resetBookmarksIntb_school()
+        updateTb_school(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_Similar_words(newBookmark: SealedClass.Tb_Similar_words) {
+        resetBookmarksIntb_Similar_words()
+        updateTb_Similar_words(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_The_animals(newBookmark: SealedClass.Tb_The_animals) {
+        resetBookmarksIntb_The_animals()
+        updateTb_The_animals(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTb_transports(newBookmark: SealedClass.Tb_transports) {
+        resetBookmarksIntb_transports()
+        updateTb_transports(newBookmark.copy(bookmark = 1))
+    }
+
+    @Transaction
+    suspend fun setBookmarkForTv_verbs(newBookmark: SealedClass.Tv_verbs) {
+        resetBookmarksIntv_verbs()
+        updateTv_verbs(newBookmark.copy(bookmark = 1))
+    }
+
+
 
 //    constructor() : this(0, "", "")
 }
