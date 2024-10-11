@@ -71,7 +71,7 @@ class AdapterWord( private val context: Context,
     var wordsList: List<SealedClass> = emptyList()
         set(value) {
             field = value
-            wordsListFull = value.toList()
+
             differ.submitList(value)
         }
 
@@ -96,8 +96,9 @@ class AdapterWord( private val context: Context,
 
         private val englishWordTextView: TextView = itemView.findViewById(R.id.englishWord)
         private val arabicWordTextView: TextView = itemView.findViewById(R.id.arabicMeaning)
+        private val word_idText: TextView = itemView.findViewById(R.id.word_id)
         val bookmarkButton : ImageButton = itemView.findViewById(R.id.imageButton)
-        val bookmarkBtn    : ImageButton = itemView.findViewById(R.id.ismageButton)
+//        val bookmarkBtn    : ImageButton = itemView.findViewById(R.id.ismageButton)
 
 
 
@@ -109,6 +110,7 @@ class AdapterWord( private val context: Context,
                     var onItemClick: (( SealedClass.Word, Int) -> Unit)? = null
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -118,12 +120,12 @@ class AdapterWord( private val context: Context,
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+////                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
 
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+////                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
                     bookmarkButton.setOnClickListener {
@@ -134,6 +136,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Words_two -> {
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -144,11 +147,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -160,6 +163,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Word_three -> {
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -170,11 +174,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -185,6 +189,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_Adjectives -> {
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -195,11 +200,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -211,6 +216,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_Clothes_and_toilet_articles ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -221,11 +227,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -237,6 +243,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_Colours ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -246,11 +253,11 @@ class AdapterWord( private val context: Context,
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -262,6 +269,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_Family ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -271,11 +279,11 @@ class AdapterWord( private val context: Context,
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -287,6 +295,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_fruit ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -296,11 +305,11 @@ class AdapterWord( private val context: Context,
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -312,6 +321,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_Houseandfurniture ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -321,11 +331,11 @@ class AdapterWord( private val context: Context,
                         speak(wordEntity.Arabic_Word!!, Locale("ar"))
                     }
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -337,6 +347,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_Human_body ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -347,11 +358,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -363,6 +374,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_jobs ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -373,11 +385,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -389,6 +401,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_Kitchen_tools ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -399,11 +412,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -415,6 +428,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_places ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -425,11 +439,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -441,6 +455,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_Pronoun ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -451,11 +466,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -467,6 +482,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_school ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -477,11 +493,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -493,6 +509,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_Similar_words ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -503,11 +520,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -519,6 +536,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_The_animals ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -529,11 +547,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -545,6 +563,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tb_transports ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -555,11 +574,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 
@@ -571,6 +590,7 @@ class AdapterWord( private val context: Context,
                 is SealedClass.Tv_verbs ->{
                     englishWordTextView.text = wordEntity.English_Word
                     arabicWordTextView.text = wordEntity.Arabic_Word
+                    word_idText.text=wordEntity.ID.toString()
 
                     englishWordTextView.setOnClickListener {
                         speak(wordEntity.English_Word!!, Locale.US)
@@ -581,11 +601,11 @@ class AdapterWord( private val context: Context,
                     }
 
                     if(wordEntity.bookmark==1){
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_t)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_t)
                     }
                     else{
-                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
+//                        bookmarkBtn.setImageResource(R.drawable.ic_bookmark_f)
                         bookmarkButton.setImageResource(R.drawable.ic_bookmark_f)
                     }
 

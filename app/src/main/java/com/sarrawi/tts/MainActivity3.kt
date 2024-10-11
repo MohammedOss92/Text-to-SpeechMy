@@ -162,6 +162,8 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
 
                 // Handle search query when a new item is selected
                 if (searchQuery.isNotEmpty()) {
+                    searchView.setQuery("", false) // مسح النص المدخل
+                    searchView.clearFocus() // إزالة التركيز من SearchView
                     performSearchForPosition(position, searchQuery)
                 }
             }
@@ -183,6 +185,7 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
                 val currentPosition = spinner.selectedItemPosition
                 if (newText != null) {
                     performSearchForPosition(currentPosition, newText)
+
                 }
                 return false
             }
@@ -402,60 +405,95 @@ class MainActivity3 : AppCompatActivity(), TextToSpeech.OnInitListener {
             results.isNotEmpty() && results[0] is SealedClass.Word -> {
                 adapterWord.wordsList = results as List<SealedClass.Word>
                 adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Words_two -> {
                 adapterWord.wordsList = results as List<SealedClass.Words_two>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Word_three -> {
                 adapterWord.wordsList = results as List<SealedClass.Word_three>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_Adjectives -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_Adjectives>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_Clothes_and_toilet_articles -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_Clothes_and_toilet_articles>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_Colours -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_Colours>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_Family -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_Family>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_fruit -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_fruit>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_Houseandfurniture -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_Houseandfurniture>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_Human_body -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_Human_body>
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_jobs -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_jobs>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_Kitchen_tools -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_Kitchen_tools>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_places -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_places>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_Pronoun -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_Pronoun>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_school -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_school>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_Similar_words -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_Similar_words>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_The_animals -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_The_animals>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tb_transports -> {
                 adapterWord.wordsList = results as List<SealedClass.Tb_transports>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
             results.isNotEmpty() && results[0] is SealedClass.Tv_verbs -> {
                 adapterWord.wordsList = results as List<SealedClass.Tv_verbs>
+                adapterWord.wordsListFull = results
+                adapterWord.notifyDataSetChanged()
             }
 
             // أضف المزيد من الحالات حسب الحاجة

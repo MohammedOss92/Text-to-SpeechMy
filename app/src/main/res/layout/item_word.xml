@@ -38,13 +38,25 @@
             android:gravity="end"
             android:padding="8dp" />
 
-        <android.widget.ImageButton
-            android:id="@+id/ismageButton"
+        <TextView
+            android:id="@+id/word_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_bookmark_f"
-            />
+
+            android:textSize="10sp"
+            android:textColor="@android:color/black"
+
+            android:padding="8dp" />
+
+<!--        <android.widget.ImageButton-->
+<!--            android:id="@+id/ismageButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:minWidth="48dp"-->
+<!--            android:minHeight="48dp"-->
+<!--            android:contentDescription="ب"-->
+<!--            app:srcCompat="@drawable/ic_bookmark_f" />-->
 
     </android.widget.TableRow>
 
